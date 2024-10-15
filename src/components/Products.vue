@@ -9,38 +9,41 @@
                 <button @click="addToCart(product)">加入購物車</button>
             </div>
 
-        <section>
-            <!-- 購物車區域 -->
-            <div class="cart">
-                <h2>購物車</h2>
-                <div class="cartcontent">
-                    <div v-if="cartStore.cart.length === 0">
-                        購物車是空的
-                    </div>
-                    <ul v-else>
-                        <li v-for="item in cartStore.cart" :key="item.id">
-                        {{ item.name }} - 單價: {{item.price }} - 數量: {{ item.quantity }} - 小計: {{ item.price * item.quantity }} TWD
-                        <button @click="increaseQuantity(item)">+</button>
-                        <button @click="decreaseQuantity(item)">-</button>
-                        <button @click="removeFromCart(item)">移除</button>
-                        </li>
-                    </ul>
+        <section class="cart">
+        <!-- 購物車區域 -->
+            <h2>購物車</h2>
+            <div class="cartcontent">
+                <div v-if="cartStore.cart.length === 0">
+                    購物車是空的
                 </div>
-                <div class="Discount">
-                    <div>
-                        <input v-model="discountCodeInput" type="text" placeholder="輸入優惠折扣碼" @keyup.enter="applyDiscountCode">
-                        <button @click="applyDiscountCode">優惠折扣送出</button>
-                        <p v-if="invalidCode">折扣碼無效</p>
-                    </div>
-        
-                    <!-- 顯示購物車總價 -->
-                    <div v-if="cartStore.cart.length > 0" class="CartCheckout">
-                        <h3>總金額: {{ cartStore.totalPrice }} TWD</h3>
-                        <button @click="checkout">結帳</button>
-                    </div>
+                <ul v-else>
+                    <li v-for="item in cartStore.cart" :key="item.id">
+                        <div>
+                            <span>{{ item.name }}</span>
+                            <span>單價: {{ item.price }} TWD</span>
+                            <span>數量: {{ item.quantity }}</span>
+                            <span>小計: {{ item.price * item.quantity }} TWD</span>
+                        </div>
+                        <div>
+                            <button @click="increaseQuantity(item)">+</button>
+                            <button @click="decreaseQuantity(item)">-</button>
+                            <button @click="removeFromCart(item)">移除</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="discount">
+                <div>
+                    <input v-model="discountCodeInput" type="text" placeholder="輸入優惠折扣碼" @keyup.enter="applyDiscountCode">
+                    <button @click="applyDiscountCode">優惠折扣送出</button>
+                    <p v-if="invalidCode">折扣碼無效</p>
+                </div>
+                <!-- 顯示購物車總價 -->
+                <div v-if="cartStore.cart.length > 0" class="cartcheckout">
+                    <h3>總金額: {{ cartStore.totalPrice }} TWD</h3>
+                    <button @click="checkout">結帳</button>
                 </div>
             </div>
-            
         </section>
 
 
@@ -106,9 +109,6 @@
 
 
 <style scoped>
-    li{
-        list-style: none;
-    }
     .productsbox{
         max-width: 1200px;
         width: 100%;
@@ -125,30 +125,53 @@
     }
 
     .cart{
-        width: 1200px;
-        max-width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+        max-width: 1200px;
+        width: 100%;
+        margin: 50px 0;
     }
 
     .cart h2{
-        font-size: 40px;
+        font-size: 32px;
     }
 
-    .cartcontent div{
-        display: flex;
-        align-items: center;
+    .cartcontent {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
     }
 
-    .Discount{
+    .cartcontent ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cartcontent li {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+        list-style: none;
+    }
+
+    .cartcontent li button {
+        margin-left: 10px;
+    }
+
+    .cartcontent li div {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .discount{
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
         justify-content: space-around;
-        flex-direction: column;
     }
 
-    .CartCheckout{
+    .cartcheckout{
         display: flex;
     }
 
@@ -170,6 +193,27 @@
         border-radius: 5px;
         width: 400px;
         text-align: center;
+    }
+    /* For screens smaller than 768px (Tablets and large phones) */
+    @media (max-width: 768px) {
+        .product-item {
+            width: 80%; /* 在平板和大手機上，產品項目寬度占據更多空間 */
+        }
+
+        .cartcontent li div {
+            width: 100%;
+            flex-direction: column; /* 調整為上下排列 */
+            align-items: flex-start;
+        }
+
+        .discount {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cartcheckout h3 {
+            font-size: 20px; /* 調整文字大小 */
+        }
     }
 
 </style>
