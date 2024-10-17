@@ -4,17 +4,31 @@ import Products from './components/Products.vue';
 
 <template>
 
+  <header class="headerr">
+    <h1>Vue Cart</h1>
+  </header>
   <main>
     <div>
       <Products />
     </div>
   </main>
 
+  <footer class="footerr">
+  </footer>
+
 </template>
 
 <style scoped>
-  header {
-    line-height: 1.5;
+
+  .headerr h1{
+    margin: 20px 0;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .footerr{
+    max-width: 1200px;
+    width: 100%;
   }
 
   .logo {
@@ -22,7 +36,7 @@ import Products from './components/Products.vue';
     margin: 0 auto 2rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (max-width: 768px) {
     header {
       display: flex;
       place-items: center;

@@ -158,7 +158,7 @@ export const useCartStore = defineStore('cart', {
             if (state.discountCode) {
                 if (state.discountCode.type === 'percentage') {
                     // 百分比折扣
-                    return Math.floor(total * (1 - state.discountCode.value / 100));
+                    return Math.floor(total * (state.discountCode.value / 100));
                 } else if (state.discountCode.type === 'fixed') {
                     // 固定折扣
                     return Math.max(0, total - state.discountCode.value);
