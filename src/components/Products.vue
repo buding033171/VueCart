@@ -6,6 +6,7 @@
                 <h2>{{ product.name }}</h2>
                 <p>價格: {{ product.price }} TWD</p>
                 <p>剩餘數量: {{ product.maxQuantity }}</p>
+                <p>(每項商品最多購買兩項)</p>
                 <button @click="addToCart(product)">加入購物車</button>
             </div>
 
@@ -124,6 +125,11 @@
         text-align: center;
     }
 
+    .product-item img{
+        max-width: 200px;
+        width: 100%;
+    }
+
     .cart{
         max-width: 1200px;
         width: 100%;
@@ -162,6 +168,10 @@
         flex: 1;
         display: flex;
         justify-content: space-between;
+    }
+
+    .cartcontent span{
+        font-size: 20px;
     }
     
     .discount{

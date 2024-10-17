@@ -3,11 +3,13 @@ import Products from './components/Products.vue';
 </script>
 
 <template>
+
   <main>
     <div>
       <Products />
     </div>
   </main>
+
 </template>
 
 <style scoped>

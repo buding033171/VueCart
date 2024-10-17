@@ -108,10 +108,10 @@ export const useCartStore = defineStore('cart', {
         addToCart(product) {
             const existingItem = this.cart.find(item => item.id === product.id);
             if (existingItem) {
-                if (existingItem.quantity < product.maxQuantity) {
+                if (existingItem.quantity < 2) {
                     existingItem.quantity++;
-                }else {
-                    alert(`已超過 ${product.name} 的最大購買數量 (${product.maxQuantity})`);
+                } else {
+                    alert(`已超過 ${product.name} 的最大購買數量 (2)`);
                 }
             } else {
                 this.cart.push({ ...product, quantity: 1 });
@@ -126,10 +126,10 @@ export const useCartStore = defineStore('cart', {
         // 增加商品數量
         increaseQuantity(item) {
             const product = this.products.find(p => p.id === item.id);
-            if (item.quantity < product.maxQuantity) {
+            if (item.quantity < 2) {
                 item.quantity++;
             } else {
-                alert(`已超過 ${product.name} 的最大購買數量 (${product.maxQuantity})`);
+                alert(`已超過 ${item.name} 的最大購買數量 (2)`);
             }
             this.saveCartToLocalStorage();
         },
