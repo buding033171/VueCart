@@ -101,12 +101,16 @@
         background-color: #f0ad4e;
     }
 
+    .item-actions .decrease-btn:hover {
+        background-color: #d18f30;
+    }
+
     .item-actions .remove-btn{
         background-color: #d9534f;
     }
 
-    .item-actions button:hover {
-        background-color: #45a049;
+    .item-actions .remove-btn:hover {
+        background-color: #cc3733;
     }
 
     .cartcontent {

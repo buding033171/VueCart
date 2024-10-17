@@ -120,8 +120,11 @@ export const useCartStore = defineStore('cart', {
         },
         // 移除商品
         removeFromCart(item) {
-            this.cart = this.cart.filter(i => i.id !== item.id);
-            this.saveCartToLocalStorage();
+            const confirmed = window.confirm("確認移除商品?");
+            if (confirmed) {
+                this.cart = this.cart.filter(i => i.id !== item.id);
+                this.saveCartToLocalStorage();
+            }
         },
         // 增加商品數量
         increaseQuantity(item) {

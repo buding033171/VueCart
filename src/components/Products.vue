@@ -35,8 +35,8 @@
         </div>
         <div class="discount">
             <div class="discount-code">
-                <input v-model="discountCodeInput" type="text" placeholder="輸入優惠折扣碼" @keyup.enter="applyDiscountCode">
-                <button @click="applyDiscountCode">優惠折扣送出</button>
+                <input v-model="discountCodeInput" type="text" placeholder="請輸入優惠碼" @keyup.enter="applyDiscountCode">
+                <button @click="applyDiscountCode">優惠碼</button>
                 <p v-if="invalidCode">折扣碼無效</p>
             </div>
             <!-- 顯示購物車總價 -->
