@@ -8,13 +8,14 @@
     }
 
     .product-item {
-        width: 20%;
+        width: 18%;
         font-family: Arial, sans-serif;
         padding: 20px;
         border: 1px solid #ddd;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-align: center;
         border-radius: 8px;
+        margin: 10px;
     }
 
     .product-item h2 {
@@ -280,12 +281,12 @@
     /* 手機板RWD */
     @media (max-width: 768px) {
         .product-item {
-            width: 80%; /* 在平板和大手機上，產品項目寬度占據更多空間 */
+            width: 80%;
         }
 
         .cartcontent li div {
             width: 100%;
-            flex-direction: column; /* 調整為上下排列 */
+            flex-direction: column;
             align-items: flex-start;
         }
 
@@ -295,6 +296,6 @@
         }
 
         .cartcheckout h3 {
-            font-size: 20px; /* 調整文字大小 */
+            font-size: 20px;
         }
     }
