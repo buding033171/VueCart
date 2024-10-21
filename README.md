@@ -1,30 +1,23 @@
 商品購物車
 
-ProductCart 是一個使用 Vue 3 和 Vite 建立的前端項目，旨在提供響應式且動態的購物車體驗。
+VueCart 是一個使用 Vue 3 和 Vite 建立的前端項目，旨在提供響應式且動態的購物車體驗。
+
+![image](https://github.com/user-attachments/assets/f38706ef-b047-432a-a1b9-ce140543d203)
+![image](https://github.com/user-attachments/assets/f8d2138d-ff5b-4585-88ab-8cbda1860951)
+![image](https://github.com/user-attachments/assets/936e7794-3f65-48b5-be06-9645c6520b85)
 
 專案的運行方式
-安裝專案依賴
-使用以下指令來安裝所有依賴項目：
 
-sh
-複製程式碼
+```
 npm install
-啟動開發伺服器
-為了在本地開發模式下運行專案，請使用以下指令啟動熱更新開發伺服器：
+安裝專案所需要的套件
 
-sh
-複製程式碼
 npm run dev
 啟動後，你可以在瀏覽器中訪問 http://localhost:5173/ 。
 
-生產環境編譯
-當你準備將專案部署到生產環境時，使用以下指令來編譯和壓縮資源：
-
-sh
-複製程式碼
 npm run build
-編譯後的檔案將會儲存在 dist 資料夾內，你可以將這些檔案上傳至伺服器進行部署。
-
+壓縮打包
+```
 - 專案結構
 
 將商品跟折價優惠的資料存放在 cartStroe ，透過 cartStroe 寫好的動作
